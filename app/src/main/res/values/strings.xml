@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">app06_05_2015</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="Send_Button">Send UDP packet</string>
+    <string name="layout_per_UDP">activity_udp</string>
+    <string name="UdpPageButton">Vai alla pagina UDP</string>
+    <string name="titolo_dati_UDP">Write Here the data to send</string>
+    <string name="HomePage">Home Page</string>
+    <string name="titolo_Host">Host or IP number</string>
+    <string name="titolo_porta_sorgente">Source Port</string>
+    <string name="Receive_button">Set UDP receive Mode</string>
+    <string name="titolo_porta_destinazione">Dest. Port</string>
+    <string name="search_old_up">Piu recente</string>
+    <string name="search_old_down">Piu vecchio</string>
+    <string name="erase_purge">Purge</string>
+    <string name="erase_all">Canc</string>
+    <string name="data_received">Data Received</string>
+    <string name="ceck_box_data_write">D&amp;T</string>
+    <string name="rx_page">UDP RECEIVING</string>
+    <string name="tx_page">UDP TRANSMISSION</string>
+
+</resources>

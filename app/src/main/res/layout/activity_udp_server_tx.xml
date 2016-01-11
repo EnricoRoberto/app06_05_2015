@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="bottom"
+    android:gravity="bottom|start|top"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/layout_contenitore"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/Grigio_30">
+
+        <RelativeLayout
+            android:id="@+id/layout_intermedio"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" >
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/Button12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/Send_Button"
+            android:layout_alignLeft="@+id/button"
+            android:layout_alignStart="@+id/button" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titolo_Host"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_below="@+id/layout_intermedio"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Catrame"
+            android:ems="10"
+            android:inputType="text"
+            android:width="@dimen/UDP_send_button_wide"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titolo_porta_sorgente"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_below="@+id/editText2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView4"
+            android:background="@color/Catrame"
+            android:ems="10"
+            android:inputType="none|number"
+            android:width="@dimen/UDP_send_button_wide"
+            android:layout_alignLeft="@+id/editText1"
+            android:layout_alignRight="@+id/editText2"
+            android:layout_alignEnd="@+id/editText2" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titolo_porta_destinazione"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_below="@+id/editText4"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView3"
+            android:background="@color/Catrame"
+            android:ems="10"
+            android:inputType="none|number"
+            android:width="@dimen/UDP_send_button_wide"
+            android:layout_alignLeft="@+id/editText1"
+            android:layout_alignRight="@+id/editText4"
+            android:layout_alignEnd="@+id/editText4">
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Azzurro_Fiordaliso"
+            android:text="@string/titolo_dati_UDP"
+            android:layout_below="@+id/button2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/editText1"
+            android:layout_alignEnd="@+id/editText1" />
+
+        <Button
+            android:id="@+id/Button13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/HomePage"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="false" />
+
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Catrame"
+            android:ems="10"
+            android:inputType="text"
+            android:width="@dimen/UDP_send_button_wide"
+            android:layout_below="@+id/textView1"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search_old_up"
+            android:id="@+id/button"
+            android:layout_alignBottom="@+id/editText4"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignStart="@+id/button2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/search_old_down"
+            android:id="@+id/button2"
+            android:layout_alignTop="@+id/editText3"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:id="@+id/Button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Receive_button"
+            android:layout_alignTop="@+id/Button12"
+            android:layout_toRightOf="@+id/Button13"
+            android:layout_alignRight="@+id/textView1"
+            android:layout_alignEnd="@+id/textView1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText5"
+            android:layout_above="@+id/button"
+            android:layout_alignRight="@+id/button"
+            android:layout_alignEnd="@+id/button" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/erase_purge"
+            android:id="@+id/Button3"
+            android:layout_below="@+id/editText1"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/button2"
+            android:layout_alignStart="@+id/button2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Button4"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/ic_action_delete"
+            android:singleLine="true"
+            android:layout_below="@+id/Button3"
+            android:layout_alignRight="@+id/button"
+            android:layout_alignEnd="@+id/button" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ceck_box_data_write"
+            android:id="@+id/checkBox1"
+            android:layout_below="@+id/button2"
+            android:layout_toRightOf="@+id/textView1"
+            android:layout_toEndOf="@+id/textView1" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#e9ff7a"
+            android:layout_below="@+id/Button4"
+            android:layout_marginTop="103dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignRight="@+id/Button11"
+            android:layout_alignEnd="@+id/Button11" />
+
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/Button22"
+            android:background="@drawable/illustration"
+            android:layout_alignBottom="@+id/textView5"
+            android:layout_toRightOf="@+id/textView5"
+            android:layout_toEndOf="@+id/textView5" />
+
+    </RelativeLayout>
+
+</LinearLayout>

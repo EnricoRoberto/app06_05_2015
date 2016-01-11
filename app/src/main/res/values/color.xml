@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="Giallo">#FFFF00</color>
+    <color name="Fucsia_Bordesto_Lillato">#E0AFEE</color>
+    <color name="Catrame">#D2B48C</color>
+    <color name="Carta_da_Zucchero">#E0FFFF</color>
+    <color name="Bronzo">#CD7F32</color>
+    <color name="Azzurro_Fiordaliso">#ABCDEF</color>
+    <color name="Grigio_30">#B2B2B2</color>
+    <color name="Kaki">#C3B091</color>
+    <color name="Lime">#CCFF00</color>
+    <color name="Giallo_pallido">#8ff4ff11</color>
+
+</resources>
