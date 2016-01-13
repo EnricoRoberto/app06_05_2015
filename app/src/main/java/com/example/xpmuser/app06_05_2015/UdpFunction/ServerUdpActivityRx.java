@@ -47,7 +47,7 @@ public class ServerUdpActivityRx extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // imposta layout corrente
-		setContentView(R.layout.activity_udp_server_tx);
+		setContentView(R.layout.activity_udp_server_rx);
 
 		// istanza di oggetti da layout
         final Button btnReceiveMode=(Button)findViewById(R.id.Button11);
@@ -56,13 +56,14 @@ public class ServerUdpActivityRx extends Activity{
 		final Button btnPurge=(Button)findViewById(R.id.Button3);
 		final Button btnEraseAll=(Button)findViewById(R.id.Button4);
 		final Button btnRxDataRecall=(Button)findViewById(R.id.Button22);
+		final Button btnToTx=(Button)findViewById(R.id.Button6);
 
         final EditText udpSendDataText = (EditText)findViewById(R.id.editText1);
         final EditText hostText = (EditText)findViewById(R.id.editText2);
         final EditText srcPortText = (EditText)findViewById(R.id.editText4);
         final EditText dstPortText = (EditText)findViewById(R.id.editText3);
 		final EditText summaryText = (EditText)findViewById(R.id.editText5);
-		final TextView textReceived =(TextView)findViewById(R.id.textView5);
+		final TextView textReceived =(TextView)findViewById(R.id.editText1);
 
 
       //  final ListView hostList = (ListView) findViewById(R.id.listView);
@@ -111,6 +112,16 @@ public class ServerUdpActivityRx extends Activity{
             }
         });
 
+        btnToTx.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View arg0) {
+               Intent cambioPaginaTx = new Intent(ServerUdpActivityRx.this, ServerUdpActivity.class);
+               startActivity(cambioPaginaTx);
+               setContentView(R.layout.activity_udp_server_tx);
+               //stopservicerx();
+
+           }
+        });
+
         btnReceiveMode.setOnClickListener(new View.OnClickListener(){
 		@Override
 		public void onClick(View arg0) {
@@ -134,88 +145,7 @@ public class ServerUdpActivityRx extends Activity{
         }
 		
         });
-		btnSend.setOnClickListener(new View.OnClickListener() {
-
-			@TargetApi(Build.VERSION_CODES.HONEYCOMB)
-            @Override
-			public void onClick(View arg0) {
-
-                stopservicerx();
-                String timeStamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(Calendar.getInstance().getTime());
-
-				if (dt_insert.isChecked()!=true){
-					//udpSendDataText.setText(udpSendDataText.getText()+" ** D&T activated");
-
-					timeStamp = "# No D&T selected #";
-				}
-
-                if (udpSendDataText.getText().toString().length() >= 19 ){
-                    udpSendDataText.setText(udpSendDataText.getText().toString().substring(udpSendDataText.getText().toString().length()-19, udpSendDataText.getText().toString().length()));
-                }
-
-                else {
-                    udpSendDataText.setText(udpSendDataText.getText() + timeStamp);
-                }
-
-                String txt;
-				txt = udpSendDataText.getText().toString();
-				int lentxt = txt.length();
-				int difflen ;
-
-				String pippoEstratto = new String();
-
-				difflen = lentxt - timeStamp.length();
-                // se c'è già del testo nella casella
-				if (difflen!= 0){
-					pippoEstratto= txt.substring(0,lentxt - timeStamp.length());
-                    udpSendDataText.setText(pippoEstratto + timeStamp);
-				}
-
-				String host = "";
-				int srcPort = Integer.parseInt(srcPortText.getText().toString());
-				int dstPort = Integer.parseInt(dstPortText.getText().toString());
-				host = hostText.getText().toString();
-
-
-				//               /* non invia udp con simulatore
-				try {
-					sendUdp.avvio(udpSendDataText.getText().toString(), srcPort, dstPort, host);
-					System.out.println("Dati UDP inviati");
-					//	Toast
-					toast.upShort(context, "Dati UDP inviati");
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					System.out.println("Testo IOException generato = " + e.getMessage());
-					System.out.println("Dati NON inviati causa eccezione");
-					toast.upShort(context, "Dati NON inviati causa eccezione: " + e.getMessage());
-				}
-				//////////////////////////////////////////////     */
-				dbmanager.savetx(hostText.getText().toString(), srcPortText.getText().toString(), dstPortText.getText().toString(), udpSendDataText.getText().toString());
-
-				String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DATE};
-				String sel = DatabaseStrings.FIELD_ID;
-				//  Cursor queryAll(String table, String[] columns,String selection,String[] selectionArgs, String groupBy, String having, String orderBy)
-				final Cursor cq = dbmanager.queryAll(TBL_NAME, col, sel, null, null, null, null);
-				cq.moveToLast();
-				String[] str_id = new String[]{cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_ID))};
-				String[] str_hostname = new String[]{cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME))};
-				String[] str_srcport = new String[]{cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_SRCPORT))};
-				String[] str_dstport = new String[]{cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DSTPORT))};
-
-				String[] str_dati = new String[]{cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DATE))};
-				//;;
-				String[] str = new String[0];
-			    dbPosition = cq.getCount();
-				summaryText.setText("Pos" + dbPosition + " /" + cq.getCount());
-				cq.close();
-
-                View layoutPrincipale = findViewById(R.id.layout_contenitore);
-                layoutPrincipale.setBackgroundResource(R.color.Grigio_30);
-
-
-			}
-		});
+	//
 
 		btnsearch_plus.setOnClickListener(new View.OnClickListener() {
 

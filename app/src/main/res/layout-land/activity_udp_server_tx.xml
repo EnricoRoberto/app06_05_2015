@@ -216,6 +216,15 @@
             android:layout_alignLeft="@+id/textView5"
             android:layout_alignStart="@+id/textView5" />
 
+        <Button
+            android:id="@+id/Button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_rx_page"
+            android:layout_below="@+id/button2"
+            android:layout_toRightOf="@+id/editText1"
+            android:layout_toEndOf="@+id/editText1" />
+
     </RelativeLayout>
 
 </LinearLayout>

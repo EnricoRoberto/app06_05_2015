@@ -21,5 +21,7 @@
     <string name="ceck_box_data_write">D&amp;T</string>
     <string name="rx_page">UDP RECEIVING</string>
     <string name="tx_page">UDP TRANSMISSION</string>
+    <string name="to_rx_page">TO RX PAGE</string>
+    <string name="to_tx_page">TO TX PAGE</string>
 
 </resources>

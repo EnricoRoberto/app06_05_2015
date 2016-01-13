@@ -21,23 +21,24 @@ public class Utility_1 extends Activity {
     public static String valore3;
     public static String valore4;
     public static String valore5;
+    public static String valore;
 
     public Cursor customQuery(Context c, String tblName, String fieldId, String fieldHostname,String fieldSrcport, String fieldDstport, String  fieldDate,String fieldSel ){
         final DBManager dbmanager = new DBManager(c);
 
         String[] col = {fieldId, fieldHostname,fieldSrcport,fieldDstport,  fieldDate};
-        String sel = fieldSel;
+        String sel = DatabaseStrings.FIELD_ID;
         //  Cursor queryAll(String table, String[] columns,String selection,String[] selectionArgs, String groupBy, String having, String orderBy)
         final Cursor cq = dbmanager.queryAll(tblName, col, sel, null, null, null, null);
         return cq;
 
     }
     public boolean isFilled (Cursor cq){
-        boolean isfilled = false;
-        if (cq.getCount() >1) {
-            isfilled = true;
-        }
-        return  isfilled;
+       boolean isfilled = false;
+         if (cq.getCount() >1) {
+          isfilled = true;
+      }
+      return  isfilled;
     }
     Context mContext;
 

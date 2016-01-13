@@ -56,6 +56,7 @@ public class ServerUdpActivity extends Activity{
 		final Button btnPurge=(Button)findViewById(R.id.Button3);
 		final Button btnEraseAll=(Button)findViewById(R.id.Button4);
 		final Button btnRxDataRecall=(Button)findViewById(R.id.Button22);
+		final Button btnToRx=(Button)findViewById(R.id.Button6);
 
         final EditText udpSendDataText = (EditText)findViewById(R.id.editText1);
         final EditText hostText = (EditText)findViewById(R.id.editText2);
@@ -107,6 +108,16 @@ public class ServerUdpActivity extends Activity{
                 startActivity(cambioPaginaHome);
                 setContentView(R.layout.activity_main);
                 stopservicerx();
+
+            }
+        });
+
+        btnToRx.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent cambioPaginaRx = new Intent(ServerUdpActivity.this, ServerUdpActivityRx.class);
+                startActivity(cambioPaginaRx);
+                setContentView(R.layout.activity_udp_server_rx);
+                //stopservicerx();
 
             }
         });

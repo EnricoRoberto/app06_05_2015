@@ -201,6 +201,15 @@
             android:layout_toRightOf="@+id/editText1"
             android:layout_toEndOf="@+id/editText1" />
 
+        <Button
+            android:id="@+id/Button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/to_tx_page"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/Button11"
+            android:layout_toEndOf="@+id/Button11" />
+
     </RelativeLayout>
 
 </LinearLayout>
