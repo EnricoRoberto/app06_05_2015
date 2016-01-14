@@ -100,8 +100,7 @@
             android:text="@string/HomePage"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/Button11" />
+            android:layout_alignParentStart="true" />
 
         <EditText
             android:id="@+id/editText1"
@@ -113,9 +112,7 @@
             android:width="@dimen/UDP_send_button_wide"
             android:layout_above="@+id/Button12"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignRight="@+id/Button11"
-            android:layout_alignEnd="@+id/Button11" />
+            android:layout_alignParentStart="true" />
 
         <Button
             android:layout_width="wrap_content"
@@ -134,15 +131,6 @@
             android:layout_alignBottom="@+id/editText1"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
-
-        <Button
-            android:id="@+id/Button11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/Receive_button"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/Button13"
-            android:layout_toEndOf="@+id/Button13" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -216,9 +204,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/to_rx_page"
-            android:layout_below="@+id/button2"
-            android:layout_toRightOf="@+id/editText1"
-            android:layout_toEndOf="@+id/editText1" />
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@+id/Button13"
+            android:layout_toEndOf="@+id/Button13" />
 
     </RelativeLayout>
 
