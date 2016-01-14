@@ -34,6 +34,7 @@ import static com.example.xpmuser.app06_05_2015.SqliteStore.DatabaseStrings.TBL_
 
 public class ServerUdpActivityRx extends Activity{
 	public Integer dbPosition= 0;
+	public Integer dbPositionrx= 0;
 	public String datafromrx=null;
 	private IntentFilter filter =new IntentFilter("Ricevi");
 
@@ -250,7 +251,8 @@ public class ServerUdpActivityRx extends Activity{
                 Utility_1.valore3=cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_SRCPORT));
                 Utility_1.valore4=cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DATE));
 
-				textReceived.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DATE)));
+                hostText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME)));
+                textReceived.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_ID)));
 			}
 		});
 
@@ -298,14 +300,19 @@ public class ServerUdpActivityRx extends Activity{
             final EditText summaryText = (EditText)findViewById(R.id.editText5);
 
             dbmanager.savetx(hostText.getText().toString(), srcPortText.getText().toString(), dstPortText.getText().toString(), udpSendDataText.getText().toString());
+			dbmanager.saverx(hostText.getText().toString(), srcPortText.getText().toString(), dstPortText.getText().toString(), udpSendDataText.getText().toString());
+
 			String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE};
             String sel = DatabaseStrings.FIELD_ID;
             // settaggi delle caselle di testo
             srcPortText.setText("2000");
             dstPortText.setText("2000");
            	final Cursor cq = dbmanager.queryAll(TBL_NAME, col, null, null, null, null, null);
+			final Cursor cqrx = dbmanager.queryAll(TBL_NAME_RX,col,null,null,null,null,null);
 			cq.moveToLast();
+			cqrx.moveToLast();
 			dbPosition= cq.getCount();
+			dbPositionrx= cq.getCount();
 
            	hostText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME)));
            	srcPortText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_SRCPORT)));
