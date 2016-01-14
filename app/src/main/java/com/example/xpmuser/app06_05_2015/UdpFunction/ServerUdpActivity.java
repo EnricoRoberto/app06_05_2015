@@ -50,12 +50,10 @@ public class ServerUdpActivity extends Activity{
 		setContentView(R.layout.activity_udp_server_tx);
 
 		// istanza di oggetti da layout
-        final Button btnReceiveMode=(Button)findViewById(R.id.Button11);
         final Button btnSend=(Button)findViewById(R.id.Button12);
         final Button btnHome=(Button)findViewById(R.id.Button13);
 		final Button btnPurge=(Button)findViewById(R.id.Button3);
 		final Button btnEraseAll=(Button)findViewById(R.id.Button4);
-		final Button btnRxDataRecall=(Button)findViewById(R.id.Button22);
 		final Button btnToRx=(Button)findViewById(R.id.Button6);
 
         final EditText udpSendDataText = (EditText)findViewById(R.id.editText1);
@@ -63,7 +61,6 @@ public class ServerUdpActivity extends Activity{
         final EditText srcPortText = (EditText)findViewById(R.id.editText4);
         final EditText dstPortText = (EditText)findViewById(R.id.editText3);
 		final EditText summaryText = (EditText)findViewById(R.id.editText5);
-		final TextView textReceived =(TextView)findViewById(R.id.textView5);
 
 
       //  final ListView hostList = (ListView) findViewById(R.id.listView);
@@ -122,29 +119,6 @@ public class ServerUdpActivity extends Activity{
             }
         });
 
-        btnReceiveMode.setOnClickListener(new View.OnClickListener(){
-		@Override
-		public void onClick(View arg0) {
-				startservicerx();
-                String rTxt = null;
-				int srcPort = Integer.parseInt(srcPortText.getText().toString());
-				int dstPort = Integer.parseInt(dstPortText.getText().toString());
-                View layoutPrincipale = findViewById(R.id.layout_contenitore);
-                layoutPrincipale.setBackgroundResource(R.color.link_text_material_dark);
-                // btnReceiveMode.setBackgroundResource(R.color.dim_foreground_material_dark);
-				//	rTxt=receiverUdp.runUdpServer(srcPort); /// non si puo' usare con il simulatore
-				//	toast.upShort(context, "Received data: " + rTxt);
-
-				//String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_DATE, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DATE};
-				String[] col = {DatabaseStrings.FIELD_ID};
-				String sel = DatabaseStrings.FIELD_ID;
-				final Cursor cq = dbmanager.queryAll(TBL_NAME, col, sel, null, null, null, null);
-				cq.moveToFirst();
-				listupdate(dbPosition);
-
-        }
-		
-        });
 		btnSend.setOnClickListener(new View.OnClickListener() {
 
 			@TargetApi(Build.VERSION_CODES.HONEYCOMB)
@@ -314,27 +288,6 @@ public class ServerUdpActivity extends Activity{
                 }
             }
         });
-
-		btnRxDataRecall.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View arg0) {
-
-				String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE};
-				String sel = DatabaseStrings.FIELD_ID;
-				//  Cursor queryAll(String table, String[] columns,String selection,String[] selectionArgs, String groupBy, String having, String orderBy)
-				final Cursor cq = dbmanager.queryAll(TBL_NAME_RX, col, null, null, null, null, null);
-
-				cq.moveToLast(); // ultimo dato inserito
-
-                Utility_1.valore1=cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_ID));
-                Utility_1.valore2=cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME));
-                Utility_1.valore3=cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_SRCPORT));
-                Utility_1.valore4=cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DATE));
-
-				textReceived.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DATE)));
-			}
-		});
 
     }
 

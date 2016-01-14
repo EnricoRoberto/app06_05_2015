@@ -51,7 +51,6 @@ public class ServerUdpActivityRx extends Activity{
 
 		// istanza di oggetti da layout
         final Button btnReceiveMode=(Button)findViewById(R.id.Button11);
-        final Button btnSend=(Button)findViewById(R.id.Button12);
         final Button btnHome=(Button)findViewById(R.id.Button13);
 		final Button btnPurge=(Button)findViewById(R.id.Button3);
 		final Button btnEraseAll=(Button)findViewById(R.id.Button4);

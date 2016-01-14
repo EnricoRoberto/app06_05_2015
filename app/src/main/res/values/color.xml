@@ -10,5 +10,8 @@
     <color name="Kaki">#C3B091</color>
     <color name="Lime">#CCFF00</color>
     <color name="Giallo_pallido">#8ff4ff11</color>
+    <color name="Arancione_Rx">#ffb952</color>
+    <color name="Verde_Tx">#c8ff36</color>
+
 
 </resources>
