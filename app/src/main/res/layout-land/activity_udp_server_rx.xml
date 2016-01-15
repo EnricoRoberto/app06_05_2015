@@ -103,7 +103,9 @@
             android:id="@+id/button"
             android:layout_above="@+id/button2"
             android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignStart="@+id/button2"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:layout_width="wrap_content"
@@ -112,7 +114,9 @@
             android:id="@+id/button2"
             android:layout_alignBottom="@+id/editText1"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:id="@+id/Button11"
@@ -121,7 +125,9 @@
             android:text="@string/Receive_button"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/Button13"
-            android:layout_toEndOf="@+id/Button13" />
+            android:layout_toEndOf="@+id/Button13"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -148,7 +154,9 @@
             android:id="@+id/Button3"
             android:layout_alignParentBottom="true"
             android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignStart="@+id/button2"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:layout_width="wrap_content"
@@ -189,7 +197,9 @@
             android:background="@drawable/illustration"
             android:layout_alignBottom="@+id/textView"
             android:layout_toRightOf="@+id/textView2"
-            android:layout_toEndOf="@+id/textView2" />
+            android:layout_toEndOf="@+id/textView2"
+            android:backgroundTintMode="screen"
+            android:backgroundTint="@color/Arancione_Rx" />
 
         <TextView
             android:id="@+id/textView"
@@ -208,7 +218,9 @@
             android:text="@string/to_tx_page"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/Button11"
-            android:layout_toEndOf="@+id/Button11" />
+            android:layout_toEndOf="@+id/Button11"
+            android:backgroundTint="@color/Verde_Tx"
+            android:backgroundTintMode="screen" />
 
     </RelativeLayout>
 

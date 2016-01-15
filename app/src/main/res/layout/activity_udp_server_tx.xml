@@ -44,7 +44,9 @@
             android:layout_alignParentRight="true"
             android:text="@string/Send_Button"
             android:layout_alignLeft="@+id/button"
-            android:layout_alignStart="@+id/button" />
+            android:layout_alignStart="@+id/button"
+            android:backgroundTint="@color/Verde_Tx"
+            android:backgroundTintMode="multiply" />
 
         <TextView
             android:id="@+id/textView2"
@@ -67,7 +69,8 @@
             android:width="@dimen/UDP_send_button_wide"
             android:layout_below="@+id/textView2"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:backgroundTint="@color/Verde_Tx" />
 
         <TextView
             android:id="@+id/textView4"
@@ -90,7 +93,8 @@
             android:width="@dimen/UDP_send_button_wide"
             android:layout_alignLeft="@+id/editText1"
             android:layout_alignRight="@+id/editText2"
-            android:layout_alignEnd="@+id/editText2" />
+            android:layout_alignEnd="@+id/editText2"
+            android:backgroundTint="@color/Verde_Tx" />
 
         <TextView
             android:id="@+id/textView3"
@@ -113,7 +117,8 @@
             android:width="@dimen/UDP_send_button_wide"
             android:layout_alignLeft="@+id/editText1"
             android:layout_alignRight="@+id/editText4"
-            android:layout_alignEnd="@+id/editText4">
+            android:layout_alignEnd="@+id/editText4"
+            android:backgroundTint="@color/Verde_Tx">
 
             <requestFocus />
         </EditText>
@@ -137,7 +142,8 @@
             android:text="@string/HomePage"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false" />
+            android:layout_alignParentStart="false"
+            android:backgroundTintMode="multiply" />
 
         <EditText
             android:id="@+id/editText1"
@@ -149,7 +155,8 @@
             android:width="@dimen/UDP_send_button_wide"
             android:layout_below="@+id/textView1"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:backgroundTint="@color/Verde_Tx" />
 
         <Button
             android:layout_width="wrap_content"
@@ -158,7 +165,9 @@
             android:id="@+id/button"
             android:layout_alignBottom="@+id/editText4"
             android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignStart="@+id/button2"
+            android:backgroundTint="@color/Verde_Tx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:layout_width="wrap_content"
@@ -167,7 +176,9 @@
             android:id="@+id/button2"
             android:layout_alignTop="@+id/editText3"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/Verde_Tx"
+            android:backgroundTintMode="multiply" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -175,7 +186,8 @@
             android:id="@+id/editText5"
             android:layout_above="@+id/button"
             android:layout_alignRight="@+id/button"
-            android:layout_alignEnd="@+id/button" />
+            android:layout_alignEnd="@+id/button"
+            android:backgroundTint="@color/Verde_Tx" />
 
         <Button
             android:layout_width="wrap_content"
@@ -186,7 +198,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignStart="@+id/button2"
+            android:backgroundTint="@color/Verde_Tx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:layout_width="wrap_content"
@@ -206,7 +220,8 @@
             android:id="@+id/checkBox1"
             android:layout_below="@+id/button2"
             android:layout_toRightOf="@+id/textView1"
-            android:layout_toEndOf="@+id/textView1" />
+            android:layout_toEndOf="@+id/textView1"
+            android:backgroundTint="@color/Arancione_Rx" />
 
         <Button
             android:id="@+id/Button6"
@@ -215,7 +230,9 @@
             android:text="@string/to_rx_page"
             android:layout_alignParentBottom="true"
             android:layout_toRightOf="@+id/Button13"
-            android:layout_toEndOf="@+id/Button13" />
+            android:layout_toEndOf="@+id/Button13"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
     </RelativeLayout>
 

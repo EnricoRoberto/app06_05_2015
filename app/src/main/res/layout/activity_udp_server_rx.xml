@@ -115,7 +115,8 @@
             android:text="@string/HomePage"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="false" />
+            android:layout_alignParentStart="false"
+            android:backgroundTintMode="multiply" />
 
         <EditText
             android:id="@+id/editText1"
@@ -137,7 +138,9 @@
             android:id="@+id/button"
             android:layout_alignBottom="@+id/editText4"
             android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignStart="@+id/button2"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:layout_width="wrap_content"
@@ -146,7 +149,9 @@
             android:id="@+id/button2"
             android:layout_alignTop="@+id/editText3"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:id="@+id/Button11"
@@ -155,7 +160,9 @@
             android:text="@string/Receive_button"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -174,7 +181,9 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignLeft="@+id/button2"
-            android:layout_alignStart="@+id/button2" />
+            android:layout_alignStart="@+id/button2"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:backgroundTintMode="multiply" />
 
         <Button
             android:layout_width="wrap_content"
@@ -191,9 +200,11 @@
             android:layout_height="50dp"
             android:id="@+id/Button22"
             android:background="@drawable/illustration"
-            android:layout_alignBottom="@+id/editText1"
-            android:layout_alignRight="@+id/Button11"
-            android:layout_alignEnd="@+id/Button11" />
+            android:backgroundTintMode="screen"
+            android:backgroundTint="@color/Arancione_Rx"
+            android:layout_above="@+id/Button3"
+            android:layout_toRightOf="@+id/editText1"
+            android:layout_toEndOf="@+id/editText1" />
 
         <TextView
             android:id="@+id/textView6"
@@ -212,7 +223,9 @@
             android:text="@string/to_tx_page"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/editText1"
-            android:layout_alignEnd="@+id/editText1" />
+            android:layout_alignEnd="@+id/editText1"
+            android:backgroundTint="@color/Verde_Tx"
+            android:backgroundTintMode="multiply" />
 
     </RelativeLayout>
 
