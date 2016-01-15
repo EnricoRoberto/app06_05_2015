@@ -135,7 +135,8 @@
             android:id="@+id/editText5"
             android:layout_alignTop="@+id/button"
             android:layout_toLeftOf="@+id/button"
-            android:layout_toStartOf="@+id/button" />
+            android:layout_toStartOf="@+id/button"
+            android:backgroundTint="@color/Arancione_Rx" />
 
         <TextView
             android:id="@+id/textView4"
