@@ -51,13 +51,13 @@
             android:id="@+id/editText2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/Catrame"
             android:ems="10"
             android:inputType="text"
             android:width="@dimen/UDP_send_button_wide"
             android:layout_below="@+id/textView2"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            android:background="@color/Arancione_Rx" />
 
         <TextView
             android:id="@+id/textView4"
@@ -74,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView4"
-            android:background="@color/Catrame"
+            android:background="@color/Arancione_Rx"
             android:ems="10"
             android:inputType="none|number"
             android:width="@dimen/UDP_send_button_wide"
@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView3"
-            android:background="@color/Catrame"
+            android:background="@color/Arancione_Rx"
             android:ems="10"
             android:inputType="none|number"
             android:width="@dimen/UDP_send_button_wide"
@@ -122,7 +122,7 @@
             android:id="@+id/editText1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/Catrame"
+            android:background="@color/Arancione_Rx"
             android:ems="10"
             android:inputType="text"
             android:width="@dimen/UDP_send_button_wide"

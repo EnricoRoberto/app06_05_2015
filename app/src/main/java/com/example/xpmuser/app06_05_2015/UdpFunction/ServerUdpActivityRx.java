@@ -72,8 +72,8 @@ public class ServerUdpActivityRx extends Activity{
         final CheckBox dt_insert = (CheckBox)findViewById(R.id.checkBox1);
 
 		// settaggi delle caselle di testo
-        srcPortText.setText("2000");
-        dstPortText.setText("2000");
+       // srcPortText.setText("2000");
+       // dstPortText.setText("2000");
         // istanza di classi
         final ToastReady toast = new ToastReady();
         final SendUdp sendUdp = new SendUdp();
@@ -305,8 +305,8 @@ public class ServerUdpActivityRx extends Activity{
 			String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE};
             String sel = DatabaseStrings.FIELD_ID;
             // settaggi delle caselle di testo
-            srcPortText.setText("2000");
-            dstPortText.setText("2000");
+            //srcPortText.setText("2000");
+            //dstPortText.setText("2000");
         	final Cursor cqrx = dbmanager.queryAll(TBL_NAME_RX,col,null,null,null,null,null);
 		    cqrx.moveToLast();
             cqrx.moveToFirst();
@@ -325,8 +325,8 @@ public class ServerUdpActivityRx extends Activity{
     protected void startservicerx()   {
         final Context context = getApplicationContext();
         final ToastReady toast = new ToastReady();
-		startService(new Intent(this, ServiceRtx.class));
 
+        startService(new Intent(this, ServiceRtx.class));
         toast.upShort(context, "Servizio ha ricevuto il comando di START");
     }
 

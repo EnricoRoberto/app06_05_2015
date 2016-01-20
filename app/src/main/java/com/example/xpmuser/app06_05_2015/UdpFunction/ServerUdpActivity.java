@@ -196,8 +196,8 @@ public class ServerUdpActivity extends Activity{
 				cq.close();
 
                 View layoutPrincipale = findViewById(R.id.layout_contenitore);
-                layoutPrincipale.setBackgroundResource(R.color.Grigio_30);
-
+                layoutPrincipale.setBackgroundResource(R.color.Verde_Tx);
+                colorupdate(layoutPrincipale,R.color.Verde_Tx_Eseguito);
 
 			}
 		});
@@ -351,6 +351,9 @@ public class ServerUdpActivity extends Activity{
 			cq.close();
 	}
 
+    protected void colorupdate(View view, int color1)    {
+                view.setBackgroundResource(color1);
+    }
 
     protected void startservicerx()   {
         final Context context = getApplicationContext();
