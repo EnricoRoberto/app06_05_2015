@@ -63,7 +63,7 @@ public class DBManager {
         }
     }
 
-    public int purge()
+    public int purge(String tabName)
     {
         SQLiteDatabase db=dbhelper.getWritableDatabase();
         // funziona cosi': cancella tutte le righe che hanno nel campo "Hostname" un valore vuoto ""
@@ -72,7 +72,7 @@ public class DBManager {
         int val = 0;
         try
         {
-            val = db.delete(DatabaseStrings.TBL_NAME, whereClause,whereArgs);
+            val = db.delete(tabName, whereClause,whereArgs);
             System.out.println("Cancellazione eseguita di: " + val + "record");
         }
         catch (SQLiteException sqle)
@@ -82,7 +82,7 @@ public class DBManager {
         return val;
     }
 
-    public int delete()
+    public int delete(String tabName)
     {
         // cancella tutto
         SQLiteDatabase db=dbhelper.getWritableDatabase();
@@ -91,7 +91,7 @@ public class DBManager {
         int val = 0;
         try
         {
-            val = db.delete(DatabaseStrings.TBL_NAME, whereClause,whereArgs);
+            val = db.delete(tabName, whereClause,whereArgs);
             System.out.println("Cancellazione eseguita di: "+ val + "record");
         }
         catch (SQLiteException sqle)

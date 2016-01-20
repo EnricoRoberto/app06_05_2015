@@ -117,7 +117,7 @@ public class ServerUdpActivityRx extends Activity{
                Intent cambioPaginaTx = new Intent(ServerUdpActivityRx.this, ServerUdpActivity.class);
                startActivity(cambioPaginaTx);
                setContentView(R.layout.activity_udp_server_tx);
-               //stopservicerx();
+               stopservicerx();
 
            }
         });
@@ -127,7 +127,8 @@ public class ServerUdpActivityRx extends Activity{
 		public void onClick(View arg0) {
 				startservicerx();
                 String rTxt = null;
-				int srcPort = Integer.parseInt(srcPortText.getText().toString());
+
+				/*int srcPort = Integer.parseInt(srcPortText.getText().toString());
 				int dstPort = Integer.parseInt(dstPortText.getText().toString());
                 View layoutPrincipale = findViewById(R.id.layout_contenitore);
                 layoutPrincipale.setBackgroundResource(R.color.link_text_material_dark);
@@ -140,7 +141,7 @@ public class ServerUdpActivityRx extends Activity{
 				String sel = DatabaseStrings.FIELD_ID;
 				final Cursor cq = dbmanager.queryAll(TBL_NAME, col, sel, null, null, null, null);
 				cq.moveToFirst();
-				listupdate(dbPosition);
+				listupdate(dbPositionrx);*/
 
         }
 		
@@ -154,13 +155,13 @@ public class ServerUdpActivityRx extends Activity{
 				String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE};
 				String sel = DatabaseStrings.FIELD_ID;
 				//  Cursor queryAll(String table, String[] columns,String selection,String[] selectionArgs, String groupBy, String having, String orderBy)
-				final Cursor cq = dbmanager.queryAll(TBL_NAME, col, sel, null, null, null, null);
+				final Cursor cq = dbmanager.queryAll(TBL_NAME_RX, col, sel, null, null, null, null);
 				cq.getCount();
 				if (utility.isFilled(cq)) {
 					if (dbPosition == cq.getCount()) {
-						dbPosition = cq.getCount() - 1;
+                        dbPosition = cq.getCount() - 1;
 					}
-					dbPosition = dbPosition + 1;
+                    dbPosition = dbPosition + 1;
 					cq.move(dbPosition);
 					hostText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME)));
 					srcPortText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_SRCPORT)));
@@ -171,8 +172,8 @@ public class ServerUdpActivityRx extends Activity{
 					cq.close();
 
 					// prova di una query custom da fare sulla tabella, restituisce un Cursor con i campi indicati e si posiziona sulla selezione Sel
-					final Cursor cursore = utility.customQuery(context, DatabaseStrings.TBL_NAME, DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE, DatabaseStrings.FIELD_HOSTNAME);
-					cursore.close();
+					//final Cursor cursore = utility.customQuery(context, DatabaseStrings.TBL_NAME_RX, DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE, DatabaseStrings.FIELD_HOSTNAME);
+					//cursore.close();
 				} else {
 					return;
 				}
@@ -186,12 +187,12 @@ public class ServerUdpActivityRx extends Activity{
                 String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE};
 				String sel = DatabaseStrings.FIELD_ID;
 				//  Cursor queryAll(String table, String[] columns,String selection,String[] selectionArgs, String groupBy, String having, String orderBy)
-				final Cursor cq = dbmanager.queryAll(TBL_NAME, col, null, null, null, null, null);
+				final Cursor cq = dbmanager.queryAll(TBL_NAME_RX, col, null, null, null, null, null);
 				if (utility.isFilled(cq)) {
 					if (dbPosition <= 1){
-						dbPosition = 2;
+                        dbPosition = 2;
 					}
-					dbPosition = dbPosition - 1 ;
+                    dbPosition = dbPosition - 1 ;
 					cq.move(dbPosition);
                 	hostText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME)));
                 	srcPortText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_SRCPORT)));
@@ -214,7 +215,7 @@ public class ServerUdpActivityRx extends Activity{
             public void onClick(View arg0) {
 				int val;
                 if (dbPosition >0){
-                    val=dbmanager.purge();
+                    val=dbmanager.purge(DatabaseStrings.TBL_NAME_RX);
 					toast.upShort(context, "Rimossi n° " + val + " record");
 					listupdate(dbPosition);
 					}
@@ -227,7 +228,7 @@ public class ServerUdpActivityRx extends Activity{
             public void onClick(View arg0) {
                 int val;
                 if (dbPosition >0){
-                    val=dbmanager.delete();
+                    val=dbmanager.delete(DatabaseStrings.TBL_NAME_RX);
                     toast.upShort(context, "Rimossi n° "+ val + " record");
                     listupdate(dbPosition);
                 }
@@ -299,7 +300,6 @@ public class ServerUdpActivityRx extends Activity{
             final EditText udpSendDataText = (EditText)findViewById(R.id.editText1);
             final EditText summaryText = (EditText)findViewById(R.id.editText5);
 
-            dbmanager.savetx(hostText.getText().toString(), srcPortText.getText().toString(), dstPortText.getText().toString(), udpSendDataText.getText().toString());
 			dbmanager.saverx(hostText.getText().toString(), srcPortText.getText().toString(), dstPortText.getText().toString(), udpSendDataText.getText().toString());
 
 			String[] col = {DatabaseStrings.FIELD_ID, DatabaseStrings.FIELD_HOSTNAME, DatabaseStrings.FIELD_SRCPORT, DatabaseStrings.FIELD_DSTPORT, DatabaseStrings.FIELD_DATE};
@@ -307,20 +307,18 @@ public class ServerUdpActivityRx extends Activity{
             // settaggi delle caselle di testo
             srcPortText.setText("2000");
             dstPortText.setText("2000");
-           	final Cursor cq = dbmanager.queryAll(TBL_NAME, col, null, null, null, null, null);
-			final Cursor cqrx = dbmanager.queryAll(TBL_NAME_RX,col,null,null,null,null,null);
-			cq.moveToLast();
-			cqrx.moveToLast();
-			dbPosition= cq.getCount();
-			dbPositionrx= cq.getCount();
+        	final Cursor cqrx = dbmanager.queryAll(TBL_NAME_RX,col,null,null,null,null,null);
+		    cqrx.moveToLast();
+            cqrx.moveToFirst();
+            dbPosition= cqrx.getCount();
 
-           	hostText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME)));
-           	srcPortText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_SRCPORT)));
-           	dstPortText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DSTPORT)));
-           	udpSendDataText.setText(cq.getString(cq.getColumnIndex(DatabaseStrings.FIELD_DATE)));
-            summaryText.setText("Pos" + dbPosition + " /" + cq.getCount());
+           	hostText.setText(cqrx.getString(cqrx.getColumnIndex(DatabaseStrings.FIELD_HOSTNAME)));
+           	srcPortText.setText(cqrx.getString(cqrx.getColumnIndex(DatabaseStrings.FIELD_SRCPORT)));
+           	dstPortText.setText(cqrx.getString(cqrx.getColumnIndex(DatabaseStrings.FIELD_DSTPORT)));
+           	udpSendDataText.setText(cqrx.getString(cqrx.getColumnIndex(DatabaseStrings.FIELD_DATE)));
+            summaryText.setText("Pos" + dbPosition + " /" + cqrx.getCount());
 			System.out.println("Update eseguito");
-			cq.close();
+			cqrx.close();
 	}
 
 
@@ -344,4 +342,5 @@ public class ServerUdpActivityRx extends Activity{
 
 
 }
+
 

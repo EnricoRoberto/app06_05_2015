@@ -114,7 +114,7 @@ public class ServerUdpActivity extends Activity{
                 Intent cambioPaginaRx = new Intent(ServerUdpActivity.this, ServerUdpActivityRx.class);
                 startActivity(cambioPaginaRx);
                 setContentView(R.layout.activity_udp_server_rx);
-                //stopservicerx();
+                startservicerx();
 
             }
         });
@@ -269,7 +269,7 @@ public class ServerUdpActivity extends Activity{
             public void onClick(View arg0) {
 				int val;
                 if (dbPosition >0){
-                    val=dbmanager.purge();
+                    val=dbmanager.purge(DatabaseStrings.TBL_NAME);
 					toast.upShort(context, "Rimossi n° " + val + " record");
 					listupdate(dbPosition);
 					}
@@ -282,7 +282,7 @@ public class ServerUdpActivity extends Activity{
             public void onClick(View arg0) {
                 int val;
                 if (dbPosition >0){
-                    val=dbmanager.delete();
+                    val=dbmanager.delete(DatabaseStrings.TBL_NAME);
                     toast.upShort(context, "Rimossi n° "+ val + " record");
                     listupdate(dbPosition);
                 }
